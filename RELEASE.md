@@ -31,6 +31,8 @@
 *   Fixed bug in CLI (--engine=kubeflow) which uses hard coded obslete image
     (TFX 0.14.0) as the base image.
 *   Allow users to specify the region to use when serving with for AI Platform.
+*   Fixed loading trainer and transformation functions from python module files
+    without the .py extension.
 
 ### Deprecations
 

@@ -192,7 +192,7 @@ def deploy_model_for_cmle_serving(serving_path: Text, model_version: Text,
 
   model_name = cmle_serving_args['model_name']
   project_id = cmle_serving_args['project_id']
-  regions = cmle_serving_args.get('regions', ['us-central1'])
+  regions = cmle_serving_args.get('regions', [])
   runtime_version = _get_tf_runtime_version()
   python_version = _get_caip_python_version()
 

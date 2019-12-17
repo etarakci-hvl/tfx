@@ -142,8 +142,8 @@ class RunnerTest(tf.test.TestCase):
     self._mock_api_client.projects().models().versions(
     ).setDefault = mock_set_default
     mock_set_default_execute = mock.Mock()
-    self._mock_api_client.projects().models().versions(
-    ).setDefault().execute = mock_set_default_execute
+    self._mock_api_client.projects().models().versions().setDefault(
+    ).execute = mock_set_default_execute
 
     mock_get.return_value.execute.return_value = {
         'done': 'Done',
@@ -163,7 +163,7 @@ class RunnerTest(tf.test.TestCase):
     self.assertDictEqual(
         {
             'name': 'v{}'.format(model_version),
-            'regions': ['us-central1'],
+            'regions': [],
             'deployment_uri': serving_path,
             'runtime_version': runner._get_tf_runtime_version(),
             'python_version': runner._get_caip_python_version(),
@@ -192,8 +192,8 @@ class RunnerTest(tf.test.TestCase):
     self._mock_api_client.projects().models().versions(
     ).setDefault = mock_set_default
     mock_set_default_execute = mock.Mock()
-    self._mock_api_client.projects().models().versions(
-    ).setDefault().execute = mock_set_default_execute
+    self._mock_api_client.projects().models().versions().setDefault(
+    ).execute = mock_set_default_execute
 
     mock_get.return_value.execute.return_value = {
         'done': 'Done',
@@ -225,6 +225,7 @@ class RunnerTest(tf.test.TestCase):
         name='projects/{}/models/{}/versions/{}'.format(
             self._project_id, 'model_name', model_version))
     mock_set_default_execute.assert_called_with()
+
 
 if __name__ == '__main__':
   tf.test.main()

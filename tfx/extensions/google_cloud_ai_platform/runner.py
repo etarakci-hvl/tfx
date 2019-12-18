@@ -98,7 +98,8 @@ def start_cmle_training(input_dict: Dict[Text, List[types.Artifact]],
     training_inputs: Training input for CMLE training job. 'pythonModule',
       'pythonVersion' and 'runtimeVersion' will be inferred by the runner. For
       the full set of parameters supported, refer to
-        https://cloud.google.com/ml-engine/docs/tensorflow/deploying-models#creating_a_model_version.
+        https://cloud.google.com/ml-engine/docs/training-jobs#gathering_the_job_configuration_data
+
 
   Returns:
     None
